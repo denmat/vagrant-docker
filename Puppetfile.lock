@@ -1,0 +1,68 @@
+FORGE
+  remote: https://forgeapi.puppetlabs.com
+  specs:
+    puppetlabs/apache (1.1.0)
+      puppetlabs/concat (>= 1.0.0)
+      puppetlabs/stdlib (>= 2.4.0)
+    puppetlabs/apt (1.5.1)
+      puppetlabs/stdlib (>= 2.2.1)
+    puppetlabs/concat (1.1.0)
+      puppetlabs/stdlib (>= 4.0.0)
+    puppetlabs/firewall (1.1.3)
+    puppetlabs/git (0.2.0)
+      puppetlabs/vcsrepo (>= 0.1.0)
+    puppetlabs/inifile (1.1.3)
+    puppetlabs/java (1.1.1)
+      puppetlabs/stdlib (>= 0.1.6)
+    puppetlabs/java_ks (1.2.5)
+    puppetlabs/passenger (0.3.0)
+      puppetlabs/apache (>= 0.0.3)
+      puppetlabs/ruby (>= 0.0.1)
+      puppetlabs/stdlib (>= 0)
+    puppetlabs/postgresql (3.4.0)
+      puppetlabs/apt (< 2.0.0, >= 1.1.0)
+      puppetlabs/concat (< 2.0.0, >= 1.0.0)
+      puppetlabs/firewall (>= 0.0.4)
+      puppetlabs/stdlib (< 5.0.0, >= 3.2.0)
+    puppetlabs/puppetdb (3.0.1)
+      puppetlabs/firewall (>= 0.0.4)
+      puppetlabs/inifile (~> 1.0)
+      puppetlabs/postgresql (< 4.0.0, >= 3.1.0)
+      puppetlabs/stdlib (>= 2.2.0)
+    puppetlabs/ruby (0.2.1)
+      puppetlabs/stdlib (< 5.0.0, >= 3.2.0)
+    puppetlabs/stdlib (4.3.0)
+    puppetlabs/vcsrepo (1.1.0)
+
+GIT
+  remote: https://github.com/denmat/denmat-puppetmaster.git
+  ref: master
+  sha: 76fc330034a6711ea9e8035fb054e2b18635b4ae
+  specs:
+    puppetmaster (0.0.1)
+
+GIT
+  remote: https://github.com/denmat/puppet-dnsmasq.git
+  ref: 365ad9f86a1ed3c4c3de9bb4637cbf4ca7c70bb0
+  sha: 365ad9f86a1ed3c4c3de9bb4637cbf4ca7c70bb0
+  specs:
+    dnsmasq (2.5.0)
+      puppetlabs/concat (>= 1.0.2)
+      puppetlabs/stdlib (>= 4.2.0)
+
+DEPENDENCIES
+  dnsmasq (>= 0)
+  puppetlabs/apache (>= 0)
+  puppetlabs/concat (>= 0)
+  puppetlabs/firewall (>= 0)
+  puppetlabs/git (>= 0)
+  puppetlabs/inifile (>= 0)
+  puppetlabs/java (>= 0)
+  puppetlabs/java_ks (>= 0)
+  puppetlabs/passenger (>= 0)
+  puppetlabs/postgresql (>= 0)
+  puppetlabs/puppetdb (>= 0)
+  puppetlabs/stdlib (>= 0)
+  puppetlabs/vcsrepo (>= 0)
+  puppetmaster (>= 0)
+

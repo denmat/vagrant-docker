@@ -1,0 +1,59 @@
+---
+classes:
+  - roles::puppetmaster
+
+puppetmaster::is_ca: true
+puppetmaster::is_puppetmaster: true
+puppetmaster::dns_alt_names: puppet
+puppetmaster::use_httpd: false
+puppetmaster::puppetdb_server: 127.0.0.1
+puppetmaster::puppetdb_port: 8080
+puppetmaster::use_directory_environments: true
+puppetmaster::modulepath: ['common', 'modules']
+puppetmaster::use_r10k: false
+puppetmaster::use_eyaml: false
+
+puppetmaster::required_packages:
+  ruby-devel:
+    ensure: present
+  gcc:
+    ensure: latest
+puppetmaster::packages:
+  puppet-server:
+    ensure: 3.6.2-1.el6 
+  hiera:
+    ensure: 1.3.4-1.el6
+  msgpack:
+    ensure: latest
+    provider: gem
+
+puppetmaster::eyaml_packages:
+  gpgme-devel:
+    ensure: latest
+  hiera-eyaml-gpg:
+    ensure: latest
+    provider: gem
+    require: Package[tar]
+  hiera-eyaml:
+    ensure: latest
+    provider: gem
+puppetmaster::r10k_packages:
+  r10k:
+    ensure: latest
+    provider: gem
+
+puppetmaster_httpd_packages:
+  httpd:
+    ensure: latest
+  mod_ssl:
+    ensure: latest
+  mod_passenger:
+    ensure: 3.0.19-1.el6
+  rubygem-passenger-native-libs:
+    ensure: 3.0.19-1.el6_1.8.7.352
+  rubygem-passenger:
+    ensure: 3.0.19-1.el6
+  rubygem-passenger-native:
+    ensure: 3.0.19-1.el6
+  rubygem-rack:
+    ensure: 1.1.0-2.el6

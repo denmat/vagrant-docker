@@ -1,0 +1,41 @@
+# See sshd_config(5) for more information and defaults.
+Protocol 2
+
+# Logging
+SyslogFacility AUTHPRIV
+
+# Authentication:
+PasswordAuthentication yes
+LoginGraceTime 30
+PermitRootLogin no
+ChallengeResponseAuthentication no
+UsePAM yes
+GSSAPIAuthentication no
+GSSAPICleanupCredentials yes
+
+# Accept locale-related environment variables
+AcceptEnv LANG LC_CTYPE LC_NUMERIC LC_TIME LC_COLLATE LC_MONETARY LC_MESSAGES
+AcceptEnv LC_PAPER LC_NAME LC_ADDRESS LC_TELEPHONE LC_MEASUREMENT
+AcceptEnv LC_IDENTIFICATION LC_ALL LANGUAGE
+AcceptEnv XMODIFIERS
+
+#misc
+X11Forwarding yes
+UseDNS no
+TCPKeepAlive yes
+ClientAliveInterval 0
+ClientAliveCountMax 3
+MaxAuthTries 4
+Banner /etc/issue
+
+#this is a bit silly check to see if the client is alive but never disconnect
+ClientAliveInterval 300
+ClientAliveCountMax 0
+
+# override default of no subsystems
+Subsystem sftp  /usr/libexec/openssh/sftp-server
+
+# Without this, we end up trying to use ipv6 for X11 forwarding, however
+# our sysctl config has turned off ipv6...
+AddressFamily inet
+

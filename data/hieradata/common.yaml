@@ -1,0 +1,24 @@
+classes:
+  - roles::common
+
+common_packages:
+  'vim-enhanced':
+    ensure: latest
+  'git':
+    ensure: latest
+  'tar':
+    ensure: latest
+
+puppet::client::packages:
+  puppet:
+    ensure: 3.6.2-1.el6
+
+common_users:
+  'root':
+    ensure: present
+
+dnsmasq:
+  interface: lo
+  domain: docker
+  domain_needed: false
+  enable_tftp: false
