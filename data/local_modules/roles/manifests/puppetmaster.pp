@@ -1,9 +1,9 @@
 class roles::puppetmaster (
   $database_type = 'embedded',
-  $puppetdb_server = '127.0.0.1',
-  $listen_address = '127.0.0.1',  
-  $ssl_listen_address = '127.0.0.1',
-  $disable_ssl = true
+  $puppetdb_server = $puppetmaster::puppetdb_server,
+  $listen_address = $puppetmaster::puppetdb_listen_address,
+  $ssl_listen_address = $puppetmaster::ssl_listen_address,
+  $disable_ssl = $puppetmaster::disable_ssl
   ) {
 
   Class['::puppetmaster::client::linux'] -> Class['::puppetmaster::master'] -> Class['puppetdb'] -> Class['puppetdb::master::config']

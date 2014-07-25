@@ -21,14 +21,15 @@ class roles::common {
   }
 
   class { 'dnsmasq':
-    listen_address => $get_puppetmaster_ip,
+    listen_address => [ "$get_puppetmaster_ip", "127.0.0.1" ],
     domain         => 'docker',
     port           => '53',
     no_hosts       => true,
-    require        => File['/etc/sysconfig/network']
+    require        => File['/etc/sysconfig/network'],
+    run_as_user    => 'root'
   }
 
-  dnsmasq::address { 'puppet.docker':
+  dnsmasq::address { 'puppet':
     ip  => $get_puppetmaster_ip,
   }
 

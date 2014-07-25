@@ -3,15 +3,37 @@ classes:
   - roles::puppetmaster
 
 puppetmaster::is_ca: true
+puppetmaster::is_devel: true
 puppetmaster::is_puppetmaster: true
 puppetmaster::dns_alt_names: puppet
 puppetmaster::use_httpd: false
-puppetmaster::puppetdb_server: 127.0.0.1
-puppetmaster::puppetdb_port: 8080
 puppetmaster::use_directory_environments: true
 puppetmaster::modulepath: ['common', 'modules']
 puppetmaster::use_r10k: false
 puppetmaster::use_eyaml: false
+puppetmaster::use_hiera: true
+puppetmaster::hiera::backends:
+  backends:
+    yaml:
+      datadir: '/etc/puppet/environments/production/data/extdata'
+puppetmaster::hiera::hierarchy: 
+  - secrets
+  - nodes/virtual/%%{literal('%')}{::hostname}.%%{literal('%')}{::virtual}
+  - operatingsystemrelease/%%{literal('%')}{::operatingsystemrelease}
+  - osfamily/%%{literal('%')}{::osfamily}
+  - virtual/%%{literal('%')}{::virtual}
+  - location/%%{literal('%')}{::domain}
+  - roles/%%{literal('%')}{calling_class}
+  - users
+  - groups
+  - repos
+  - common
+
+puppetmaster::puppetdb_server: puppet
+puppetmaster::puppetdb_port: 8080
+puppetmaster::puppetdb_listen_address: '127.0.0.1'
+puppetmaster::ssl_listen_address: '0.0.0.0'
+puppetmaster::disable_ssl: false
 
 puppetmaster::required_packages:
   ruby-devel:
