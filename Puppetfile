@@ -14,7 +14,6 @@ mod "puppetlabs/apache"
 mod "puppetlabs/passenger"
 
 mod "dnsmasq",
-  :git => "https://github.com/denmat/puppet-dnsmasq.git",
-  :ref => '365ad9f86a1ed3c4c3de9bb4637cbf4ca7c70bb0'
+  :git => "https://github.com/denmat/puppet-dnsmasq.git"
 mod "puppetmaster",
   :git => "https://github.com/denmat/denmat-puppetmaster.git"

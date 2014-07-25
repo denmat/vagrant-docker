@@ -37,14 +37,14 @@ FORGE
 GIT
   remote: https://github.com/denmat/denmat-puppetmaster.git
   ref: master
-  sha: 76fc330034a6711ea9e8035fb054e2b18635b4ae
+  sha: bd1a8f247080462638e46e924a60a11dc58f4d21
   specs:
     puppetmaster (0.0.1)
 
 GIT
   remote: https://github.com/denmat/puppet-dnsmasq.git
-  ref: 365ad9f86a1ed3c4c3de9bb4637cbf4ca7c70bb0
-  sha: 365ad9f86a1ed3c4c3de9bb4637cbf4ca7c70bb0
+  ref: master
+  sha: d68f7ef39dfa0627a3663d25dd47d2a22b0216c8
   specs:
     dnsmasq (2.5.0)
       puppetlabs/concat (>= 1.0.2)
