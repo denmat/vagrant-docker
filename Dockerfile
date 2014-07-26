@@ -14,7 +14,7 @@ ADD files/id_rsa.pub /home/vagrant/.ssh/authorized_keys
 ADD files/sudoers.d.vagrant /etc/sudoers.d/container_users 
 
 RUN chown vagrant.vagrant /home/vagrant/.ssh/authorized_keys
-RUN chmod 640 /home/vagrant/.ssh/authorized_key
+RUN chmod 640 /home/vagrant/.ssh/authorized_keys
 
 EXPOSE 22
 EXPOSE 53
